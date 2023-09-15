@@ -1,0 +1,29 @@
+{
+  "bcUser": "",
+  "bcKey": "",
+  "server": "hub-cloud.browserstack.com",
+  "base_url_prod": "https://www.mercedes-benz.co.uk/",
+
+  "capabilities": {
+    "sessionName": "",
+    "projectName": "",
+    "buildName": ""
+  },
+  "platforms": {
+    "firefox_mac": {
+      "browserName": "Firefox",
+      "browserVersion": "115.0",
+      "os": "OS X",
+      "osVersion": "Monterey",
+      "resolution": "1920x1080",
+      "local": true
+    },
+    "chrome_mac": {
+      "browserName": "Chrome",
+      "browserVersion": "115.0",
+      "os": "OS X",
+      "osVersion": "Monterey",
+      "resolution": "1920x1080"
+    }
+  }
+}
