@@ -1,5 +1,6 @@
 # cucumber-shadow-dom
 This repository is a showcase of automated tests where application under test (AUT) is based totally on shadow doms. It was made possible by using a third party, so WebElement declarations were made relatively easier in Page Object Model files (POM).
+Stack: Selenium Webdriver, Cucumber, TestNG
 
 # Prerequisites
 * Java Development Kit (JDK): JDK 8 or higher.
