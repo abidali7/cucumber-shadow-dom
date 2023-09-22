@@ -18,7 +18,7 @@ public class Utilities {
     public static String BASEURL;
     public static String browserName;
     public static boolean isMobile;
-    public static Scenario cucumberScenario;
+    public static Scenario scenario;
 
     static {
         try {

@@ -14,7 +14,7 @@ import java.util.List;
 
 import static helpers.Utilities.*;
 
-public class InnerBasicPage {
+public class InnerBasePage {
     // contain all functions which are inner details of BasicPage
     public static WebDriver innerDriver;
     public static Shadow shadow;

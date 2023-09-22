@@ -1,4 +1,4 @@
-package driver;
+package browsers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.MutableCapabilities;
@@ -7,13 +7,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 
-import static helpers.BasicPage.*;
+import static helpers.BasePage.*;
 
 import java.util.logging.Level;
 
-public class Chrome implements BrowserInterface {
+public class LocalChrome implements InterfaceBrowsers {
     @Override
-    public void createWebdriver() {
+    public void createBrowser() {
         MutableCapabilities caps = new MutableCapabilities();
         WebDriverManager.chromedriver().setup();
 

@@ -1,4 +1,4 @@
-package driver;
+package browsers;
 
 import com.browserstack.local.Local;
 import org.json.simple.JSONObject;
@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import static helpers.BasicPage.*;
+import static helpers.BasePage.*;
 import static helpers.Utilities.*;
 
 import java.net.URL;
@@ -18,11 +18,11 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BrowserCloud implements BrowserInterface {
+public class BrowserCloud implements InterfaceBrowsers {
     private Local localTunnel;
     private static final Logger logger = Logger.getLogger(BrowserCloud.class.getName());
     Map<String, String> localArgs = new HashMap<>();
-    Map<String, Object> browserCloudOptions = new HashMap<>();
+    Map<String, Object> cloudOptions = new HashMap<>();
     private MutableCapabilities caps;
     private boolean local = false;
 
@@ -30,7 +30,7 @@ public class BrowserCloud implements BrowserInterface {
         caps = new MutableCapabilities();
     }
 
-    public void createWebdriver() throws Exception {
+    public void createBrowser() throws Exception {
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
         logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
@@ -86,10 +86,10 @@ public class BrowserCloud implements BrowserInterface {
             String key = entry.getKey();
             Object val = entry.getValue();
 
-            browserCloudOptions.put(key, val);
+            cloudOptions.put(key, val);
             if (key.equals("local")) local = true;
         }
 
-        caps.setCapability("bstack:options", browserCloudOptions); // bstack:options for browserstack
+        caps.setCapability("bstack:options", cloudOptions); // bstack:options for browserstack
     }
 }

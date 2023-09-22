@@ -1,15 +1,15 @@
-package driver;
+package browsers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import static helpers.BasicPage.*;
+import static helpers.BasePage.*;
 
 
-public class Firefox implements BrowserInterface {
+public class LocalFirefox implements InterfaceBrowsers {
 
     @Override
-    public void createWebdriver() {
+    public void createBrowser() {
         // Use firefox driver from here
         WebDriverManager.firefoxdriver().setup();
 

@@ -1,9 +1,9 @@
 package stepDefinitions;
 
-import driver.BrowserCloud;
-import driver.BrowserInterface;
-import driver.Chrome;
-import driver.Firefox;
+import browsers.BrowserCloud;
+import browsers.InterfaceBrowsers;
+import browsers.LocalChrome;
+import browsers.LocalFirefox;
 import io.cucumber.java.*;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -18,13 +18,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import static helpers.BasicPage.*;
+import static helpers.BasePage.*;
 import static helpers.Utilities.*;
 
 
 public class Hooks {
 
-    private static BrowserInterface browserStrategy;
+    private static InterfaceBrowsers browserStrategy;
     private static final String systemUserName = System.getProperty("user.name");
     private static final String browserChoice = System.getProperty("browser");
     private static final String browserCloudEnv = System.getProperty("browserCloudEnv");
@@ -52,9 +52,9 @@ public class Hooks {
         json.replace("buildName", buildName);
 
         // Start the browsers
-        browserStrategy = browserChoice.equals("browserCloud") ? new BrowserCloud() : (browserChoice.equals("chrome") ? new Chrome() : new Firefox());
+        browserStrategy = browserChoice.equals("browserCloud") ? new BrowserCloud() : (browserChoice.equals("chrome") ? new LocalChrome() : new LocalFirefox());
         try {
-            browserStrategy.createWebdriver();
+            browserStrategy.createBrowser();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,8 +79,8 @@ public class Hooks {
     }
 
     @Before
-    public void initializeTests(Scenario scenario) {
-        cucumberScenario = scenario;
+    public void initializeTests(Scenario suite) {
+        scenario = suite;
         //Collection<String> tags = scenario.getSourceTagNames();
     }
 

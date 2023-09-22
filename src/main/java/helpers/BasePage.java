@@ -12,14 +12,14 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.*;
 
-import static helpers.InnerBasicPage.*;
+import static helpers.InnerBasePage.*;
 import static helpers.Utilities.*;
 
-public class BasicPage {
+public class BasePage {
     // contain all functions which are directly linked with steps definitions
     public static WebDriver driver;
 
-    public BasicPage() {
+    public BasePage() {
         innerDriver = driver;
         shadow = new Shadow(driver);
         PageFactory.initElements(driver, this);
@@ -90,12 +90,12 @@ public class BasicPage {
             throw new RuntimeException(e);
         }
 
-        cucumberScenario.attach(content.toString(), "text/html", "highLowValues");
+        scenario.attach(content.toString(), "text/html", "highLowValues");
     }
 
 
     public static void takeScreenshot() {
         if (executorPageReady())
-            cucumberScenario.attach(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot");
+            scenario.attach(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES), "image/png", "Screenshot");
     }
 }

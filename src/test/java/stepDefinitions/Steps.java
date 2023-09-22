@@ -1,6 +1,6 @@
 package stepDefinitions;
 
-import helpers.BasicPage;
+import helpers.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,15 +15,15 @@ import pageobjects.Homepage.HomepageMobile;
 import java.util.Arrays;
 
 import static helpers.Utilities.*;
-import static helpers.InnerBasicPage.*;
+import static helpers.InnerBasePage.*;
 
 public class Steps {
-    private final BasicPage base;
+    private final BasePage base;
     private final HomepageAbstract homepage;
     private final ConfiguratorAbstract configurator;
 
     public Steps() {
-        base = new BasicPage();
+        base = new BasePage();
         homepage = isMobile ? new HomepageMobile() : new HomepageDesktop();
         configurator = isMobile ? new ConfiguratorMobile() : new ConfiguratorDesktop();
     }
@@ -83,7 +83,7 @@ public class Steps {
 
     @Then("^take the screenshot and attach it to report$")
     public void screenshot() {
-        BasicPage.takeScreenshot();
+        BasePage.takeScreenshot();
     }
 
     @Then("^Save the highest and lowest price from \"([^\"]*)\" results in a text file and attached in report$")
@@ -94,14 +94,14 @@ public class Steps {
 
     public void getObject(String ele) {
         getElementNull();
-        for (BasicPage object : Arrays.asList(homepage, configurator)) {
+        for (BasePage object : Arrays.asList(homepage, configurator)) {
             if (getObjectByName(object, ele)) break;
         }
     }
 
     public void getObject(String ele1, String ele2) {
         getElementNull();
-        for (BasicPage object : Arrays.asList(homepage, configurator)) {
+        for (BasePage object : Arrays.asList(homepage, configurator)) {
             if (getObjectByName(object, ele1)) {
                 eleSec = ele2;
                 getObjectByName(object, ele2);

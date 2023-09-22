@@ -1,9 +1,8 @@
 package pageobjects.Configurator;
 
-import helpers.BasicPage;
-import helpers.Utilities;
+import helpers.BasePage;
 
-public abstract class ConfiguratorAbstract extends BasicPage {
+public abstract class ConfiguratorAbstract extends BasePage {
     // common page object b/w desktop/mobile
     public ConfiguratorAbstract() {
         super();
